@@ -64,6 +64,7 @@ public class UserController {
   @PostMapping("/register")
   public UserRegistrationDTO registerUser(@RequestBody() UserRegistrationDTO newUser) {
     Address address = new Address(newUser.getStreet());
+    System.out.println(newUser);
     User user = new User(newUser.getName(), address);
     String userName = newUser.getName();
     String hashedPassword = userCredentialsService.hash(newUser.getPassword());
